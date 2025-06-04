@@ -8,7 +8,9 @@ services:
     ports:
       - "514:514/udp"
       - "514:514/tcp"
-      - "6514:6514/udp"
-      - "6514:6514/tcp"
       - "10514:10514/udp"
+      - "10514:10514/tcp"
+    volumes:
+      - ./local:/etc/syslog-ng/local
+      - ./logs:/var/log
     restart: unless-stopped
