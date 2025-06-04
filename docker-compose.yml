@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  sc4s:
+    image: ghcr.io/splunk/splunk-connect-for-syslog/container3:latest
+    container_name: splunk-sc4s
+    env_file:
+      - ./env_file
+    ports:
+      - "514:514/udp"
+      - "514:514/tcp"
+      - "6514:6514/udp"
+      - "6514:6514/tcp"
+      - "10514:10514/udp"
+    restart: unless-stopped
